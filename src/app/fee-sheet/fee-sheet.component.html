@@ -1,0 +1,24 @@
+
+    <form class="fee-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Fee</mat-label>
+          <input matInput placeholder="Fee" name="fee" [(ngModel)]="fee">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Date</mat-label>
+          <input type="date" matInput placeholder="Date" name="use_date" [(ngModel)]="use_date">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="Description" name="description" [(ngModel)]="description">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Standard Fee</mat-label>
+            <input matInput placeholder="Standard Fee" name="standard_fee" [(ngModel)]="standard_fee">
+          </mat-form-field>
+        <button mat-raised-button color="primary" (click)="submitFeesheet()" value="Submit">Submit</button>
+        <button mat-raised-button color="warn" (click)="submitFeesheet()" value="Brouillon">Brouillon</button>
+        <br>
+        <p [ngStyle]="{'color':'red'}">{{error}}</p>
+      </form>
+

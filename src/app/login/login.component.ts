@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthServiceService
   ) {
     
   }
@@ -26,10 +28,11 @@ export class LoginComponent implements OnInit {
   public submitLogin() {
     this.username;
     this.password;
-    this.httpClient.post(environment.apiUrl, {api: 'user_open_session', username:this.username, password:this.password}).subscribe((success: any)=>{
+    this.authService.login(this.username, this.password).subscribe((success: any)=>{
       console.log("success")
       if(success.id == 1) {
         this.router.navigate(['/home']);
+        console.log(this.authService.phpSessionId)
       } else {
         this.error = success.message
       }
@@ -40,3 +43,4 @@ export class LoginComponent implements OnInit {
  }
 
 }
+

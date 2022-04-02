@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-fee-sheet',
@@ -20,19 +21,21 @@ export class FeeSheetComponent implements OnInit {
   description:string = "";
   standard_fee:string = "";
   error:string = "";
+  is_end:number = 2;
 
   constructor(
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService:AuthServiceService
   ) {
     
   }
-  public submitFeesheet() {
+  public submitFeesheet(is_end: any) {
     this.fee;
     this.use_date;
     this.description;
     this.standard_fee;
-    this.httpClient.post(environment.apiUrl + 'users/api_session_open.php', {fee:this.fee, use_date:this.use_date, description:this.description, standard_fee:this.standard_fee}).subscribe((success: any)=>{
+    this.httpClient.post(environment.apiUrl, {api:'user_add_feesheets', php_session_id: this.authService.phpSessionId, fee:this.fee, use_date:this.use_date, description:this.description, standard_fee:this.standard_fee, is_end: this.is_end},).subscribe((success: any)=>{
       console.log("success")
       if(success.id == 1) {
         this.router.navigate(['/home']);

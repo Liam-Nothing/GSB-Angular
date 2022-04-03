@@ -1,2 +1,68 @@
 @import "ag-grid-community/dist/styles/ag-grid.css";
 @import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+/* To disable blank at the to of the page */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*********************************************************************************/
+
+/* Boostrap alert */
+
+.alert {
+	margin:auto !important;
+	position: relative;
+	padding: .75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+	margin-top: 20px!important;
+	width: 28rem;
+}
+
+.alert-success {
+	color: #155724;
+	background-color: #d4edda;
+	border-color: #c3e6cb;
+}
+
+.alert-warning {
+	color: #856404;
+	background-color: #fff3cd;
+	border-color: #ffeeba;
+}
+
+.alert-danger {
+	color: #721c24;
+	background-color: #f8d7da;
+	border-color: #f5c6cb;
+}
+
+/*********************************************************************************/
+
+/* Animation hide */
+
+.hide {
+    display: none;
+}
+
+.open-view {
+    animation: no-hide 0.5s both;
+}
+
+@keyframes no-hide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/*********************************************************************************/

@@ -1,15 +1,16 @@
 <mat-card class="card">
-  <form class="login-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Username</mat-label>
-      <input matInput placeholder="Username" name="username" [(ngModel)]="username">
-    </mat-form-field>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Password</mat-label>
-      <input type="password" matInput placeholder="Password" name="password" [(ngModel)]="password">
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="submitLogin()" value="Login">Login</button>
-    <br>
-    <p [ngStyle]="{'color':'red'}">{{error}}</p>
-  </form>
+	<mat-card-title class="">Login to your account</mat-card-title>
+	<mat-card-subtitle>Enter your informations</mat-card-subtitle>
+	<form class="login-form">
+		<mat-form-field class="example-full-width" appearance="fill">
+			<mat-label>Username</mat-label>
+			<input matInput placeholder="Username" name="username" [(ngModel)]="username">
+		</mat-form-field>
+		<mat-form-field class="example-full-width" appearance="fill">
+			<mat-label>Password</mat-label>
+			<input type="password" matInput placeholder="Password" name="password" [(ngModel)]="password">
+		</mat-form-field>
+		<button mat-raised-button color="primary" (click)="submitLogin()" value="Login">Login</button>
+	</form>
 </mat-card>
+<p [ngClass]="{hide :! error}" class="open-view alert alert-danger">{{error}}</p>

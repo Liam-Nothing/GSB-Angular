@@ -24,6 +24,8 @@
     "@fortawesome/fontawesome-svg-core": "~1.2.36",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "ag-grid-angular": "^27.1.1",
+    "ag-grid-community": "^27.1.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

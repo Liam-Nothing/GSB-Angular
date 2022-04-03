@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
       console.log("success")
       if(success.id == 1) {
         this.router.navigate(['/home']);
-        console.log(this.authService.phpSessionId)
       } else {
         this.error = success.message
       }

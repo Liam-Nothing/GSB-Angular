@@ -21,7 +21,7 @@ export class FeeSheetComponent implements OnInit {
   description:string = "";
   standard_fee:string = "";
   error:string = "";
-  is_end:number = 2;
+  is_end!: number;
 
   constructor(
     private httpClient: HttpClient,
@@ -30,12 +30,13 @@ export class FeeSheetComponent implements OnInit {
   ) {
     
   }
-  public submitFeesheet(is_end: any) {
+  public submitFeesheet(is_end: number) {
+    this.is_end;
     this.fee;
     this.use_date;
     this.description;
     this.standard_fee;
-    this.httpClient.post(environment.apiUrl, {api:'user_add_feesheets', php_session_id: this.authService.phpSessionId, fee:this.fee, use_date:this.use_date, description:this.description, standard_fee:this.standard_fee, is_end: this.is_end},).subscribe((success: any)=>{
+    this.httpClient.post(environment.apiUrl, {api:'user_add_feesheets', php_session_id: this.authService.phpSessionId, fee:this.fee, use_date:this.use_date, description:this.description, standard_fee:this.standard_fee, is_end: is_end},).subscribe((success: any)=>{
       console.log("success")
       if(success.id == 1) {
         this.router.navigate(['/home']);

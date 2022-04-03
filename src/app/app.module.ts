@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FeeSheetComponent } from './fee-sheet/fee-sheet.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from './material.module';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { MaterialModule } from './material.module';
     LoginComponent,
     HomeComponent,
     FeeSheetComponent,
+    
 
   ],
   imports: [
@@ -28,7 +30,9 @@ import { MaterialModule } from './material.module';
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    MaterialModule
+    MaterialModule,
+    AgGridModule.withComponents([])
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

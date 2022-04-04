@@ -12,6 +12,7 @@ import { FeeSheetComponent } from './fee-sheet/fee-sheet.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from './material.module';
 import { AgGridModule } from 'ag-grid-angular';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { AgGridModule } from 'ag-grid-angular';
     LoginComponent,
     HomeComponent,
     FeeSheetComponent,
+    AdminComponent,
     
 
   ],

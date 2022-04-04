@@ -1,0 +1,10 @@
+.col {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.drawerStyle {
+    height: 80vh;
+
+}

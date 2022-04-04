@@ -29,10 +29,12 @@ export class LoginComponent implements OnInit {
     this.username;
     this.password;
     this.authService.login(this.username, this.password).subscribe((success: any)=>{
-      console.log("success")
-      if(success.id == 1) {
+      console.log(success)
+      if(success.id == 1 && success.id_role == 0) {
         this.router.navigate(['/home']);
-      } else {
+      } else if(success.id == 1 && success.id_role == 3) {
+        this.router.navigate(['/admin']);
+      }else {
         this.error = success.message
       }
     }),

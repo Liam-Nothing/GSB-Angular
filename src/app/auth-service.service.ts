@@ -7,7 +7,15 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthServiceService {
-public phpSessionId:string = "";
+
+public get phpSessionId() {
+  return localStorage.getItem('phpSessionId') || "";
+}
+
+public set phpSessionId(value: string) {
+  localStorage.setItem('phpSessionId', value)
+}
+//public phpSessionId:string = "";
   constructor(
     private httpClient : HttpClient
   ) { }
@@ -16,7 +24,6 @@ public phpSessionId:string = "";
     return this.httpClient.post(environment.apiUrl, {api: 'user_open_session', username:username, password:password}).pipe(map((data: any)=>{
       // On sauvegarde ici le token pour qu'il soit accessible dans tous les composants qui utilise AuthServiceService
       if(data && data.id == "1") {
-        
         this.phpSessionId = data.php_session_id;
         console.log(this.phpSessionId);
         }

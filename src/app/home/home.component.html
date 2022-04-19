@@ -4,7 +4,6 @@
 <mat-sidenav-container class="drawerStyle">
   <mat-sidenav mode="side" opened>
     <div class="col">
-      <button mat-raised-button (click)="debug()">debug</button>
       <button mat-raised-button (click)="openDialog()" color="primary" style="padding-top: 1rem; padding-bottom: 1rem;"><mat-icon>library_add</mat-icon></button>
       <button mat-raised-button (click)="Logout()" color="warn"><i class="fa-solid fa-arrow-right-from-bracket" style="font-size: xx-large; padding: 1rem;"></i></button>
     </div>
@@ -19,31 +18,5 @@
     [columnDefs]="columnDefs">
 </ag-grid-angular>
 
-    <!-- <table class="table table-striped">
-      <thead>
-          <tr>
-            <th>Id</th>
-            <th>Description</th>
-            <th>Fee</th>
-            <th>use_date</th>
-            <th>add_date</th>
-            <th>state</th>
-            <th>id_user</th>
-            <th>standard_fee</th>
-          </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ dataTable[1].id }}</td>
-          <td>{{ dataTable[1].description }}</td>
-          <td>{{ dataTable[1].fee }}</td>
-          <td>{{ dataTable[1].use_date }}</td>
-          <td>{{ dataTable[1].add_date }}</td>
-          <td>{{ dataTable[1].state }}</td>
-          <td>{{ dataTable[1].id_user }}</td>
-          <td>{{ dataTable[1].standard_fee }}</td>
-        </tr>
-      </tbody>
-    </table> -->
   </mat-sidenav-content>
 </mat-sidenav-container>

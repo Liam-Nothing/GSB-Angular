@@ -1,3 +1,4 @@
+
 .col {
     display: flex;
     flex-direction: column;
@@ -5,6 +6,7 @@
 }
 
 .drawerStyle {
-    height: 80vh;
+    height: 100% !important ;
+    position: absolute;
 
 }

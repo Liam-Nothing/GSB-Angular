@@ -1,0 +1,16 @@
+
+    <form>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Label</mat-label>
+          <input matInput placeholder="Label" name="label" [(ngModel)]="label">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Fee</mat-label>
+          <input type="number" matInput placeholder="Fee" name="fee" [(ngModel)]="fee">
+        </mat-form-field>
+          <div class="fee-buttons">
+        <button mat-raised-button color="primary" (click)="addStandardFees()" value="Submit">Submit</button>
+      </div>
+        <br>
+        <p [ngStyle]="{'color':'red'}">{{error}}</p>
+      </form>

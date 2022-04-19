@@ -1,7 +1,10 @@
 @import "ag-grid-community/dist/styles/ag-grid.css";
 @import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
 
-/* To disable blank at the to of the page */
+/* To disable blank at the top of the page */
 
 * {
 	margin: 0;

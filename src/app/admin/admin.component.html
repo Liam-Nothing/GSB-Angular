@@ -4,47 +4,90 @@
 <mat-sidenav-container class="drawerStyle">
   <mat-sidenav mode="side" opened>
     <div class="col">
-      <button mat-raised-button (click)="debug()">debug</button>
-      <button mat-raised-button (click)="openDialog()" color="primary" style="padding-top: 1rem; padding-bottom: 1rem;"><mat-icon>library_add</mat-icon></button>
+      <button mat-raised-button (click)="openFeesheetAdd()" color="primary" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 1rem;"><mat-icon>library_add</mat-icon></button>
+      <button mat-raised-button (click)="openAddUser()"  style="padding-top: 1rem; padding-bottom: 1rem;margin-bottom: 1rem; background-color: #C5CAE9; color: white;"><mat-icon>person_add</mat-icon></button>
+      <button mat-raised-button (click)="openAddStandardFees()" color="accent" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 1rem; "><mat-icon>note_add</mat-icon></button>
       <button mat-raised-button (click)="Logout()" color="warn"><i class="fa-solid fa-arrow-right-from-bracket" style="font-size: xx-large; padding: 1rem;"></i></button>
+
     </div>
   </mat-sidenav>
-  <mat-sidenav-content>
-      <h1>Vous etes bien sula page admin</h1>
-    <button mat-raised-button (click)="test()" color="accent">Test recup feesheets</button>
-    <ag-grid-angular
-    style="padding-left: 3vw; width: 85vw; height: 100vh"
+  <mat-sidenav-content style="padding-left: 3vw ;">
+      <h1>Bienvenue sur la page administrateur</h1>
+    <!-- <ag-grid-angular
+    style="width: 73vw; height: 80vh"
     class="ag-theme-alpine"
     [rowData]="dataTable"
     [defaultColDef]="defaultColDef"
     [columnDefs]="columnDefs">
-</ag-grid-angular>
+</ag-grid-angular> -->
+<div>
+  <ngx-datatable [rows]="dataTable">
+    <ngx-datatable-column name="id">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.id}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="description">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.description}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="fee">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.fee}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="add_date">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.add_date}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="use_date">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.use_date}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="state">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.state}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="id_user">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.id_user}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="standard_fee">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.standard_fee}}
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>
 
-    <!-- <table class="table table-striped">
-      <thead>
-          <tr>
-            <th>Id</th>
-            <th>Description</th>
-            <th>Fee</th>
-            <th>use_date</th>
-            <th>add_date</th>
-            <th>state</th>
-            <th>id_user</th>
-            <th>standard_fee</th>
-          </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ dataTable[1].id }}</td>
-          <td>{{ dataTable[1].description }}</td>
-          <td>{{ dataTable[1].fee }}</td>
-          <td>{{ dataTable[1].use_date }}</td>
-          <td>{{ dataTable[1].add_date }}</td>
-          <td>{{ dataTable[1].state }}</td>
-          <td>{{ dataTable[1].id_user }}</td>
-          <td>{{ dataTable[1].standard_fee }}</td>
-        </tr>
-      </tbody>
-    </table> -->
   </mat-sidenav-content>
 </mat-sidenav-container>

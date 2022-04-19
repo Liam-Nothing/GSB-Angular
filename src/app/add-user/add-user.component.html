@@ -1,0 +1,51 @@
+
+    <form class="addUser-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" name="username" [(ngModel)]="username">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput placeholder="Password" name="password" [(ngModel)]="password">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" name="email" [(ngModel)]="email">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name" name="first_name" [(ngModel)]="first_name">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" name="last_name" [(ngModel)]="last_name">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Birth Date</mat-label>
+            <input matInput type="date" placeholder="Birth Date" name="birth_date" [(ngModel)]="birth_date">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Address" name="address" [(ngModel)]="address">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="City" name="city" [(ngModel)]="city">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Hire Date</mat-label>
+            <input matInput type="date" placeholder="Hire Date" name="hire_date" [(ngModel)]="hire_date">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Zipcode</mat-label>
+            <input matInput placeholder="Zipcode" name="zipcode" [(ngModel)]="zipcode">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Id Role</mat-label>
+            <input matInput placeholder="Id role" name="id_role" [(ngModel)]="id_role">
+          </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addUser()" value="Submit">Ajouter l'utilisateur</button>
+        <br>
+        <p [ngStyle]="{'color':'red'}">{{error}}</p>
+      </form>
+

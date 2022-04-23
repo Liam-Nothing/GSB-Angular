@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       if(success.id == 1 && success.id_role == 0) {
         this.router.navigate(['/home']);
       } else if(success.id == 1 && success.id_role == 3) {
-        this.router.navigate(['/admin']);
+        this.router.navigate(['admin']);
       }else {
         this.error = success.message
       }

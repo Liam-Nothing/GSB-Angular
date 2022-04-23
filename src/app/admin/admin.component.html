@@ -1,6 +1,4 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
 <mat-sidenav-container class="drawerStyle">
   <mat-sidenav mode="side" opened>
     <div class="col">
@@ -11,26 +9,37 @@
 
     </div>
   </mat-sidenav>
-  <mat-sidenav-content style="padding-left: 3vw ;">
+  <mat-sidenav-content style="padding-left: 2vw ;">
       <h1>Bienvenue sur la page administrateur</h1>
-    <!-- <ag-grid-angular
-    style="width: 73vw; height: 80vh"
-    class="ag-theme-alpine"
-    [rowData]="dataTable"
-    [defaultColDef]="defaultColDef"
-    [columnDefs]="columnDefs">
-</ag-grid-angular> -->
+      <mat-form-field class="filter-form-field" appearance="fill">
+        <mat-label>Filtrer le tableau</mat-label>
+        <input matInput placeholder="" type="text" [(ngModel)]="filterText" (input)="filter()">
+        <button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText = ''; filter()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+
 <div>
-  <ngx-datatable [rows]="dataTable">
-    <ngx-datatable-column name="id">
+  <ngx-datatable [rows]="dataTable" class="material" style="height: 690px;" columnMode="standard" [rowHeight]="60" [headerHeight]="50"
+  [footerHeight]="50" [scrollbarV]="true">
+    <ngx-datatable-column name="Nom">
       <ng-template let-column="column" ngx-datatable-header-template>
         <span>{{column.name}}</span>
       </ng-template>
       <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row.id}}
+        {{row.last_name}}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="description">
+    <ngx-datatable-column name="Prenom">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.first_name}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Description">
       <ng-template let-column="column" ngx-datatable-header-template>
         <span>{{column.name}}</span>
       </ng-template>
@@ -38,15 +47,15 @@
         {{row.description}}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="fee">
+    <ngx-datatable-column name="Frais">
       <ng-template let-column="column" ngx-datatable-header-template>
         <span>{{column.name}}</span>
       </ng-template>
       <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row.fee}}
+        {{row.fee}}€
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="add_date">
+    <ngx-datatable-column name="Date d'ajout">
       <ng-template let-column="column" ngx-datatable-header-template>
         <span>{{column.name}}</span>
       </ng-template>
@@ -54,7 +63,7 @@
         {{row.add_date}}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="use_date">
+    <ngx-datatable-column name="Date d'utilisation">
       <ng-template let-column="column" ngx-datatable-header-template>
         <span>{{column.name}}</span>
       </ng-template>
@@ -62,28 +71,28 @@
         {{row.use_date}}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="state">
+    <ngx-datatable-column name="Etat">
       <ng-template let-column="column" ngx-datatable-header-template>
         <span>{{column.name}}</span>
       </ng-template>
       <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row.state}}
+        {{row.state_label}}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="id_user">
+    <ngx-datatable-column name="Frais standardisés">
       <ng-template let-column="column" ngx-datatable-header-template>
         <span>{{column.name}}</span>
       </ng-template>
       <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row.id_user}}
+        {{row.standard_fee_label}}
       </ng-template>
     </ngx-datatable-column>
-    <ngx-datatable-column name="standard_fee">
+    <ngx-datatable-column name="Modifier">
       <ng-template let-column="column" ngx-datatable-header-template>
         <span>{{column.name}}</span>
       </ng-template>
       <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row.standard_fee}}
+        <button mat-raised-button style="background-color: orange; color: white;" ><mat-icon>edit</mat-icon></button>
       </ng-template>
     </ngx-datatable-column>
   </ngx-datatable>

@@ -1,11 +1,20 @@
 .col {
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
+    height: 90vh;
+    justify-content: space-evenly;
     padding: 1rem;
+    background-color: antiquewhite;
 }
 
 .drawerStyle {
-    height: 100% !important ;
+    height: auto !important ;
+    min-height: 93vh;
     position: absolute;
 
+}
+
+.filter-form-field {
+
+    width: 60%;
 }

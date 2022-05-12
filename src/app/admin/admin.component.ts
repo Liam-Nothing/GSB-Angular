@@ -18,11 +18,9 @@ import { empty } from 'rxjs';
 
 export class AdminComponent {
  
-  isLogged:number = 2;
+  isLogged!:number
   error:string = "";
-  dataTable:any = [];
-  crudeRows:any = [];
-  filterText: string = "";
+ 
 
   constructor(
     public dialog: MatDialog,
@@ -33,22 +31,18 @@ export class AdminComponent {
 
     
     ngOnInit(): void {
-//       this.httpClient.post(environment.apiUrl, {api: "all_logged_session", php_session_id: this.authService.phpSessionId} ).subscribe((logged: any)=>{
-//      logged.id = this.isLogged
-//     console.log(logged) })
-//      console.log(this.isLogged)
-// if (this.isLogged == 2 ) {
-//   this.router.navigate(['/login'])
-// }
-      this.httpClient.post(environment.apiUrl, {api: "admin_view_all_feesheets", php_session_id: this.authService.phpSessionId} ).subscribe((data: any)=>{
-      this.dataTable = Object.values(data.content);
-       this.crudeRows = Object.values(data.content);
-      })
+      this.httpClient.post(environment.apiUrl, {api: "all_logged_session", php_session_id: this.authService.phpSessionId} ).subscribe((logged: any)=>{
+      this.isLogged = logged.id
+    console.log(logged) })
+     console.log(this.isLogged)
+if (this.isLogged == 2 ) {
+  this.router.navigate(['/login'])
+}
     }
 
 
     public Logout() {
-      this.httpClient.post(environment.apiUrl, {api:'user_lougout_session', php_session_id: this.authService.phpSessionId }).subscribe((success: any)=>{
+      this.httpClient.post(environment.apiUrl, {api:'all_logout_session', php_session_id: this.authService.phpSessionId }).subscribe((success: any)=>{
         console.log("success")
         if(success.id == 1) {
           this.router.navigate(['/login']);
@@ -79,17 +73,6 @@ export class AdminComponent {
     });
   }
 
-  filter() {
-    const options = {
-      keys: ['description']
-    }
-    let fuse = new Fuse(this.crudeRows, options);
-    if(this.filterText) {
-      this.dataTable = fuse.search(this.filterText).map(element => element.item);
-    }
-    else {
-      this.dataTable = this.crudeRows;
-    }
-  }
+
 }
 

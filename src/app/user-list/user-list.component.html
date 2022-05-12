@@ -1,0 +1,83 @@
+<mat-form-field class="filter-form-field" appearance="fill">
+    <mat-label>Filtrer le tableau</mat-label>
+    <input matInput placeholder="" type="text" [(ngModel)]="filterText" (input)="filter()">
+    <button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText = ''; filter()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+<ngx-datatable [rows]="dataTable" class="material" style="height: 690px;" columnMode="standard" [rowHeight]="60" [headerHeight]="50"
+  [footerHeight]="50" [scrollbarV]="true">
+    <ngx-datatable-column name="Nom">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.last_name}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Prenom">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.first_name}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Nom d'utilisateur">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.username}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Role">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.role_label}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Email">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.email}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Date d'embauche">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.hire_date}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Adresse">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.adress}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Ville">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.city}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Modifier">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <button mat-raised-button style="background-color: orange; color: white;"  (click)="openUser(row)"><mat-icon>edit</mat-icon></button>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>

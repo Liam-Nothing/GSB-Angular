@@ -15,6 +15,9 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AdminComponent } from './admin/admin.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { AddStandardFeesComponent } from './add-standard-fees/add-standard-fees.component';
+import { FeeSheetListComponent } from './fee-sheet-list/fee-sheet-list.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { StandardFeeSheetListComponent } from './standard-fee-sheet-list/standard-fee-sheet-list.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import { AddStandardFeesComponent } from './add-standard-fees/add-standard-fees.
     AdminComponent,
     AddUserComponent,
     AddStandardFeesComponent,
+    FeeSheetListComponent,
+    UserListComponent,
+    StandardFeeSheetListComponent,
     
 
   ],

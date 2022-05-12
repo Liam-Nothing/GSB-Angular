@@ -1,5 +1,7 @@
 
-    <form class="addUser-form">
+    <form> 
+      <div class="addUser-form">
+      <div class="addUser-form-column">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Username</mat-label>
           <input matInput placeholder="Username" name="username" [(ngModel)]="username">
@@ -24,6 +26,8 @@
             <mat-label>Birth Date</mat-label>
             <input matInput type="date" placeholder="Birth Date" name="birth_date" [(ngModel)]="birth_date">
           </mat-form-field>
+        </div>
+        <div class="addUser-form-column">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Address</mat-label>
             <input matInput placeholder="Address" name="address" [(ngModel)]="address">
@@ -44,7 +48,9 @@
             <mat-label>Id Role</mat-label>
             <input matInput placeholder="Id role" name="id_role" [(ngModel)]="id_role">
           </mat-form-field>
-        <button mat-raised-button color="primary" (click)="addUser()" value="Submit">Ajouter l'utilisateur</button>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" (click)="addUser()" value="Submit">{{buttonText}}</button>
         <br>
         <p [ngStyle]="{'color':'red'}">{{error}}</p>
       </form>

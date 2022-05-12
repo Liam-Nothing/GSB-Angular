@@ -17,7 +17,7 @@
             <input matInput placeholder="Standard Fee" name="standard_fee" [(ngModel)]="standard_fee">
           </mat-form-field>
           <div class="fee-buttons">
-        <button mat-raised-button color="primary" (click)="submitFeesheet(1)" value="Submit">Submit</button>
+        <button mat-raised-button color="primary" (click)="submitFeesheet(1)" value="Submit">{{buttonText}}</button>
         <button mat-raised-button color="warn" (click)="submitFeesheet(2)" value="Brouillon">Brouillon</button>
       </div>
         <br>

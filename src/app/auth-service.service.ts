@@ -21,7 +21,7 @@ public set phpSessionId(value: string) {
   ) { }
 
   login(username: string, password: string) {
-    return this.httpClient.post(environment.apiUrl, {api: 'user_open_session', username:username, password:password}).pipe(map((data: any)=>{
+    return this.httpClient.post(environment.apiUrl, {api: 'all_open_session', username:username, password:password}).pipe(map((data: any)=>{
       // On sauvegarde ici le token pour qu'il soit accessible dans tous les composants qui utilise AuthServiceService
       if(data && data.id == "1") {
         this.phpSessionId = data.php_session_id;

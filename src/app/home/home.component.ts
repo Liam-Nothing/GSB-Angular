@@ -18,32 +18,9 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
  
   ngOnInit(): void {
-    this.httpClient.post(environment.apiUrl, {api: "user_view_all_feesheets", php_session_id: this.authService.phpSessionId} ).subscribe((data: any)=>{
-      this.dataTable = Object.values(data)
-      
-    })
   }
-  error:string = "";
-  dataTable:any = [];
 
-  public defaultColDef: ColDef = {
-    resizable: true,
-  };
-
-  columnDefs: ColDef[] = [
-    { field: 'id', width: 55 },
-    { field: 'description' },
-    { field: 'fee', width: 150},
-    { field: 'add_date' },
-    { field: 'use_date' },
-    { field: 'state', width: 75 },
-    { field: 'id_user', width: 90 },
-    {field: 'standard_fee', width: 130}
-];
-
-rowData = [
-  this.dataTable
-];
+error:string = ""
 
 
 
@@ -54,16 +31,14 @@ rowData = [
     private authService:AuthServiceService
     ){}
 
-    displayedColumns: string[] = ['id', 'description', 'fee', 'add_date', 'use_date', 'state', 'id_user', 'standard_fee'];
-    
-
     public Logout() {
-      this.httpClient.post(environment.apiUrl, {api:'user_lougout_session', php_session_id: this.authService.phpSessionId }).subscribe((success: any)=>{
+      this.httpClient.post(environment.apiUrl, {api:'all_logout_session', php_session_id: this.authService.phpSessionId }).subscribe((success: any)=>{
         console.log("success")
         if(success.id == 1) {
           this.router.navigate(['/login']);
         } else {
           this.error = success.message
+          this.router.navigate(['/login'])
         }
       }),
       (error:any)=> {
@@ -72,10 +47,6 @@ rowData = [
    }
 
 
-
-public test() {
-  console.log(this.rowData)
-}
 
     
   openDialog() {

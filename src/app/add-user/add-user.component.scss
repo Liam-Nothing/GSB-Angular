@@ -6,12 +6,15 @@
     margin-top: 10%;
 }
 
-.fee-form {
+.addUser-form {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.addUser-form-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
 }
 
 .example-full-width {

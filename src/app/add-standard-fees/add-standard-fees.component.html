@@ -9,7 +9,7 @@
           <input type="number" matInput placeholder="Fee" name="fee" [(ngModel)]="fee">
         </mat-form-field>
           <div class="fee-buttons">
-        <button mat-raised-button color="primary" (click)="addStandardFees()" value="Submit">Submit</button>
+        <button mat-raised-button color="primary" (click)="addStandardFees()" value="Submit">{{buttonText}}</button>
       </div>
         <br>
         <p [ngStyle]="{'color':'red'}">{{error}}</p>

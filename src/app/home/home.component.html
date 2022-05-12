@@ -9,14 +9,6 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-raised-button (click)="test()" color="accent">Test recup feesheets</button>
-    <ag-grid-angular
-    style="padding-left: 3vw; width: 85vw; height: 100vh"
-    class="ag-theme-alpine"
-    [rowData]="dataTable"
-    [defaultColDef]="defaultColDef"
-    [columnDefs]="columnDefs">
-</ag-grid-angular>
-
+<app-fee-sheet-list></app-fee-sheet-list>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,0 +1,43 @@
+<mat-form-field class="filter-form-field" appearance="fill">
+    <mat-label>Filtrer le tableau</mat-label>
+    <input matInput placeholder="" type="text" [(ngModel)]="filterText" (input)="filter()">
+    <button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText = ''; filter()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+<ngx-datatable [rows]="dataTable" class="material" style="height: 550px;" columnMode="standard" [rowHeight]="60" [headerHeight]="50"
+  [footerHeight]="50" [scrollbarV]="true">
+    <ngx-datatable-column name="ID">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.id}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Label">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.label}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Frais">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row.fee}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Modifier">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        <span>{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <button mat-raised-button style="background-color: orange; color: white;"  (click)="openStandardFee(row)"><mat-icon>edit</mat-icon></button>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>

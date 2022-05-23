@@ -39,19 +39,19 @@ export class AddUserComponent implements OnInit {
   }
   //TODO #5
   buttonText: string = "Créer"
-  username:string = "";
-  password:string = "";
-  email:string = "";
-  first_name:string = "";
-  last_name:string = "";
-  birth_date:string = "";
-  address:string = "";
-  city:string = "";
-  hire_date:string = "";
+  username!:string;
+  password!:string ;
+  email!:string ;
+  first_name!:string;
+  last_name!:string;
+  birth_date!:string;
+  address!:string ;
+  city!:string ;
+  hire_date!:string ;
   id_role!:number ;
-  role_label:string = "";
-  zipcode:string = "";
-  error:string = "";
+  role_label!:string ;
+  zipcode!:string;
+  error!:string ;
 
   public addUser() {
    this.username;
@@ -65,6 +65,7 @@ export class AddUserComponent implements OnInit {
    this.hire_date;
    this.id_role;
    this.zipcode;
+   this.role_label;
    if (this.data) {
     this.httpClient.post(environment.apiUrl, {api: 'admin_update_user', php_session_id: this.authService.phpSessionId, username:this.username, password:this.password, email:this.email, first_name:this.first_name, last_name:this.last_name, birth_date:this.birth_date, adress:this.address, city:this.city, hire_date:this.hire_date, id_role:this.id_role, zipcode:this.zipcode},)
     .subscribe(

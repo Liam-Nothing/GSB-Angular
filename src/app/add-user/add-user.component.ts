@@ -20,6 +20,17 @@ export class AddUserComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
+  keyPressNumbers(event: { which: any; keyCode: any; preventDefault: () => void; }) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    // Only Numbers 0-9
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   ngOnInit(): void {
     if (this.data) {
       this.buttonText = "Update"
@@ -74,7 +85,7 @@ export class AddUserComponent implements OnInit {
         if (success.id == 1) {
           this.matDialogRef.close()
         } else {
-          this.error = success.message
+          this.error = "Le champ " + success.error + " est incomplet."
         }
       });
 } else {
@@ -83,7 +94,7 @@ export class AddUserComponent implements OnInit {
     if(success.id == 1) {
       this.matDialogRef.close()
     } else {
-      this.error = success.message
+      this.error = "Le champ " + success.error + " est incomplet."
     }
   }),
   (error:any)=> {
